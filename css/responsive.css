@@ -1,0 +1,127 @@
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .admin-container {
+        flex-direction: column;
+    }
+    
+    .admin-sidebar {
+        width: 100%;
+        padding: 10px 0;
+        background: var(--dark);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .admin-logo {
+        display: none;
+    }
+    
+    .admin-nav {
+        display: flex;
+        overflow-x: auto;
+        padding: 0 10px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .admin-nav::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .admin-nav-item {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 10px 15px;
+        margin: 0 4px;
+    }
+
+    .admin-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .quiz-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .auth-content {
+        padding: 25px 20px;
+    }
+    
+    .results-container {
+        padding: 30px 20px;
+        margin: 30px auto;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-content {
+        padding: 15px;
+    }
+    
+    .menu {
+        width: 100%;
+        left: -100%;
+    }
+    
+    .menu.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-header {
+        padding: 25px 20px;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .auth-tab {
+        padding: 15px;
+    }
+    
+    .page-title {
+        font-size: 1.7rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .user-name {
+        display: none;
+    }
+    
+    .contact-card {
+        padding: 25px 20px;
+    }
+    
+    .quiz-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .quiz-footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .question-indicators {
+        justify-content: center;
+    }
+}
