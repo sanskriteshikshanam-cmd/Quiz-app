@@ -1,4 +1,4 @@
-// Authentication functions
+// js/auth.js - FIXED VERSION
 function handleLogin(e) {
     e.preventDefault();
     
@@ -15,8 +15,9 @@ function handleLogin(e) {
     
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            hideLoading('login');
             console.log('Login successful for:', userCredential.user.email);
+            hideLoading('login');
+            // Page navigation will happen automatically via auth state listener
         })
         .catch((error) => {
             hideLoading('login');
@@ -25,7 +26,7 @@ function handleLogin(e) {
             switch (error.code) {
                 case 'auth/invalid-email':
                 case 'auth/user-not-found':
-                    errorMessage = 'No user found for this email.';
+                    errorMessage = 'No user found for this email. Please sign up first.';
                     break;
                 case 'auth/wrong-password':
                     errorMessage = 'Incorrect password.';
@@ -75,11 +76,10 @@ function handleSignup(e) {
             });
         })
         .then(() => {
-            showSuccess(document.getElementById('signupSuccess'), 'Account created successfully! Redirecting...');
+            showSuccess(document.getElementById('signupSuccess'), 'Account created successfully! You can now login.');
             hideLoading('signup');
-            setTimeout(() => {
-                document.getElementById('signupForm').reset();
-            }, 2000);
+            // DON'T auto-redirect - let user login manually
+            document.getElementById('signupForm').reset();
         })
         .catch((error) => {
             hideLoading('signup');
