@@ -1,25 +1,38 @@
-// Main application initialization
+// js/app.js - FIXED VERSION
 function initApp() {
     setupEventListeners();
     initDarkMode();
     
+    console.log("🚀 App initialized, waiting for auth state...");
+    
     auth.onAuthStateChanged(user => {
+        console.log("🔐 Auth state changed:", user ? user.email : "No user");
+        
         if (user) {
             currentUser = user;
+            console.log("✅ User logged in:", user.email);
             
             // Check if user is admin
             if (user.email === 'sanskriteshikshanam@gmail.com') {
+                console.log("👑 Admin user detected, showing admin panel");
                 showAdminPanel();
             } else {
+                console.log("👤 Regular user, showing user panel");
                 showUserPanel();
             }
         } else {
+            console.log("❌ No user, showing login page");
             showLoginPage();
         }
     });
+    
+    // Load initial data
+    loadQuizzes();
 }
 
 function setupEventListeners() {
+    console.log("🔧 Setting up event listeners...");
+    
     // Auth forms
     document.getElementById('loginForm').addEventListener('submit', handleLogin);
     document.getElementById('signupForm').addEventListener('submit', handleSignup);
@@ -109,6 +122,8 @@ function setupEventListeners() {
         showNotification('Thank you for your message! We will get back to you soon.', 'success');
         this.reset();
     });
+    
+    console.log("✅ All event listeners set up successfully");
 }
 
 function addNewQuestion() {
