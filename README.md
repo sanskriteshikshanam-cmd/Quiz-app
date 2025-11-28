@@ -15,5 +15,5 @@ A modern, responsive quiz application built with Firebase and vanilla JavaScript
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/quizmaster-app.git
-   cd quizmaster-app
+   git clone https://github.com/sanskriteshikshanam-cmd/quiz-app.git
+   cd quiz-app
